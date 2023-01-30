@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 from datetime import date
 from main import getBestsellersForDate
 
@@ -27,4 +28,5 @@ def bestsellers(year, month, day):
     except ValueError:
         return "Either year, month, or day out of range", 400
     
-    return getBestsellersForDate(listDate)
+    bestsellersList = getBestsellersForDate(listDate)
+    return render_template("index.html", bestsellers=bestsellersList, date=listDate.isoformat())

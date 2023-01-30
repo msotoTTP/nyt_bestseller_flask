@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bestsellers</title>
+    <meta name="description" content="An alternate view of the NYTimes Bestsellers">
+    <meta name="keywords" content="bestsellers new york times pythonanywhere test">
+  </head>
+  <body>
+    <h1>Bestsellers list of {{ date }}</h1>
+    {% for categoryInfo in bestsellers %}
+    <section>
+        <h2>{{ categoryInfo.category }}</h2>
+        <ol>
+            {% for book in categoryInfo.books %}
+            <h3>{{ book.title }}</h3>
+            <p class="author">{{ book.author }}</p>
+            <p class="description">{{ book.description }}</p>
+            {% endfor %}
+        </ol>
+    </section>
+    {% endfor %}
+  </body>
+</html>
